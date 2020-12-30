@@ -17,28 +17,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-av-I2g">
-                                <rect key="frame" x="10" y="189.99999999999997" width="370" height="484.33333333333326"/>
+                                <rect key="frame" x="10" y="138" width="370" height="498"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfU-40-1aB">
-                                        <rect key="frame" x="20" y="0.0" width="330" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your To-Do Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="92T-wq-ZPc">
-                                        <rect key="frame" x="20" y="40.333333333333343" width="330" height="34"/>
+                                        <rect key="frame" x="20" y="0.0" width="330" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add the Description of the Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-bW-8Ya">
+                                        <rect key="frame" x="20" y="54" width="330" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="6hU-bn-AUa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-nM-ZKU">
-                                        <rect key="frame" x="154" y="94.333333333333314" width="62" height="30"/>
+                                        <rect key="frame" x="154" y="108" width="62" height="30"/>
                                         <state key="normal" title="Add Item"/>
                                         <connections>
                                             <action selector="addItemEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dl6-Sc-LkX"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-Ci-tPG">
-                                        <rect key="frame" x="15" y="144.33333333333331" width="340" height="340"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-Ci-tPG">
+                                        <rect key="frame" x="15" y="158" width="340" height="340"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="340" id="sbQ-1M-wHa"/>
@@ -47,9 +49,10 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="g7e-bW-8Ya" secondAttribute="trailing" constant="20" id="6NS-2b-OnJ"/>
                                     <constraint firstAttribute="trailing" secondItem="92T-wq-ZPc" secondAttribute="trailing" constant="20" id="OU5-Va-rgi"/>
                                     <constraint firstItem="92T-wq-ZPc" firstAttribute="leading" secondItem="Ysy-av-I2g" secondAttribute="leading" constant="20" id="SL4-a0-ZN1"/>
-                                    <constraint firstItem="mfU-40-1aB" firstAttribute="leading" secondItem="Ysy-av-I2g" secondAttribute="leading" constant="20" id="vQG-vz-erd"/>
+                                    <constraint firstItem="g7e-bW-8Ya" firstAttribute="leading" secondItem="Ysy-av-I2g" secondAttribute="leading" constant="20" id="vqd-Rf-IGa"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -61,9 +64,12 @@
                             <constraint firstItem="Ysy-av-I2g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="pV1-F9-sMr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VzC-Vc-Qox"/>
+                    <navigationItem key="navigationItem" id="VzC-Vc-Qox">
+                        <barButtonItem key="backBarButtonItem" title="Go Back" id="beF-Ls-uPL"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="toDoTextField" destination="92T-wq-ZPc" id="0LG-gY-AcJ"/>
+                        <outlet property="toDoTextField" destination="92T-wq-ZPc" id="pUO-Xd-hVn"/>
+                        <outlet property="todoDescriptionTextField" destination="g7e-bW-8Ya" id="O1W-oD-hQa"/>
                         <outlet property="todoTableView" destination="1zf-Ci-tPG" id="RUL-Oq-Erc"/>
                         <segue destination="nvb-aC-lO6" kind="show" identifier="showDetails" id="eBl-bn-ILW"/>
                     </connections>
@@ -78,29 +84,83 @@
             </objects>
             <point key="canvasLocation" x="963.07692307692309" y="93.127962085308056"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Item Details-->
         <scene sceneID="Eqt-Wg-f37">
             <objects>
                 <viewController id="nvb-aC-lO6" customClass="DetailsViewController" customModule="TextBoxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jqx-T3-fc6">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dC-fY-IaM">
+                                <rect key="frame" x="36" y="245" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wrk-Zb-G5V">
+                                <rect key="frame" x="305" y="240" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="taskStatusChangeHandler:" destination="nvb-aC-lO6" eventType="valueChanged" id="3pt-TX-dQV"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-CY-5T7">
+                                <rect key="frame" x="36" y="308" width="127" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aYK-Uc-QGK">
+                                <rect key="frame" x="36" y="345" width="316" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-0N-e7n">
+                                <rect key="frame" x="36" y="137" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="njw-da-Iwa">
+                                <rect key="frame" x="36" y="171" width="240" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="z19-xd-Hnh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Ie-2a-WVe"/>
+                    <navigationItem key="navigationItem" title="Item Details" id="5Ie-2a-WVe">
+                        <barButtonItem key="backBarButtonItem" title="Go Back" id="zzK-Vg-YD1"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskDescriptionTextView" destination="aYK-Uc-QGK" id="iu5-6h-TnT"/>
+                        <outlet property="taskNameTextView" destination="njw-da-Iwa" id="NAU-g9-sIh"/>
+                        <outlet property="taskStatusToggle" destination="wrk-Zb-G5V" id="ATE-G0-4VQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzr-fe-5YJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="93"/>
+            <point key="canvasLocation" x="1810.7692307692307" y="92.417061611374407"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qp3-sA-wge">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zlk-86-ktT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="PEY-Xm-WXv">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PEY-Xm-WXv">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -114,6 +174,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
